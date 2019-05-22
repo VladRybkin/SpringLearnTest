@@ -16,10 +16,10 @@
     <title>Title</title>
 </head>
 <body>
-<form  method="post" action="" modelAttribute="LoginUser" >
+<form  method="post" action="" modelAttribute="userForm" >
     <label><input type="text" name="name"></label><id /><br>
     <label><input type="number" name="id"></label><id /><br>
-
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="register">
 
 </form>

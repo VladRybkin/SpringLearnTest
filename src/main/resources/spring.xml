@@ -25,7 +25,9 @@
     </bean>
 
 
-
+    <bean name="encoder1" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <constructor-arg name="strength" value="11"/>
+     </bean>
     <bean name="loggingAspect" class="ua.training.aspect.UserAspect"/>
     <context:annotation-config />
 

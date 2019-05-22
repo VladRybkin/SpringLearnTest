@@ -33,7 +33,7 @@ public class Main {
         user.print();
         System.out.println(user);
         UserService userService=new UserService();
-         BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder(11);
+         BCryptPasswordEncoder bCryptPasswordEncoder=applicationContext.getBean("encoder1", BCryptPasswordEncoder.class);
 
         System.out.println(bCryptPasswordEncoder.encode("encode= " + "Vlad22"));
         System.out.println(bCryptPasswordEncoder.matches("vlad22", bCryptPasswordEncoder.encode("vlad22")));

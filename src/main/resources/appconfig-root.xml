@@ -14,7 +14,7 @@
     <import resource="spring.xml"/>
 
     <context:component-scan base-package="ua.training.*"/>
-
+    <context:annotation-config />
     <!--<context:property-placeholder location="classpath:database.properties"/>-->
 
 </beans>
