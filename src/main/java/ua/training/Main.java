@@ -40,7 +40,7 @@ public class Main {
 //        userDao.insertUser(10, "hello");
         HelloBuilder helloBuilder = new HelloBuilder().withAdress("gg").withAge(5).withName("buildername");
         helloBuilder.withAge(4);
-//        System.out.println(userDao.getUsers());
+        System.out.println(userDao.getUsers());
 
     }
      void daof(String a, String b){

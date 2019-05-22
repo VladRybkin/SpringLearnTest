@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 public class UserService {
 
 
-    private BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder(11);
+    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(11);
 
 
     private List<User> users;
@@ -45,6 +45,12 @@ public class UserService {
     public void removeUser(User user) {
         users.remove(user);
     }
+
+    public User findByUsernameAndPassword(String userName) {
+        Optional<User> user = users.stream().filter(u -> u.getName().equals(userName)).findAny();
+        return user.orElse(null);
+    }
+
 
     public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;

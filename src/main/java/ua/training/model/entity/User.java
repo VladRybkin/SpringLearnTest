@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -18,6 +19,8 @@ public class User {
     @Column(name = "user_password")
     private String password;
 
+    private Set<Role> roles;
+
 
 
     public User(int id, String name) {
@@ -28,14 +31,6 @@ public class User {
 
 
     public User() {
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public int getId() {
@@ -54,6 +49,22 @@ public class User {
         this.name = name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -63,22 +74,29 @@ public class User {
         User user = (User) o;
 
         if (id != user.id) return false;
-        return name != null ? name.equals(user.name) : user.name == null;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        if (name != null ? !name.equals(user.name) : user.name != null) return false;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        return roles != null ? roles.equals(user.roles) : user.roles == null;
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (roles != null ? roles.hashCode() : 0);
         return result;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 
     public void print(){
