@@ -30,6 +30,7 @@ public class UserRestController {
     @PostMapping(value = "/addbody")
     String addUserBody(@RequestBody User user) {
         userService.addUser(new User(user.getId(), user.getName()));
+        System.out.println();
         return user.toString();
     }
 
