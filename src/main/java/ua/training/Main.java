@@ -22,6 +22,7 @@ public class Main {
 
     public static void main(String[] args)  {
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring.xml", "db.xml");
+
 //        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/jpa.xml");
         User user=applicationContext.getBean("user1", User.class);
         UserDao userDao=applicationContext.getBean("UserDao", UserDao.class);

@@ -12,8 +12,9 @@
         http://www.springframework.org/schema/aop/spring-aop-3.1.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 
-
-    <context:component-scan base-package="ua.training"/>
+    <!--<mvc:resources mapping="/resources/**" location="/WEB-INF/"/>-->
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="ua.training.*"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>

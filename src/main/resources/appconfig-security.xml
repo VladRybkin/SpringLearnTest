@@ -31,7 +31,8 @@
         <beans:constructor-arg name="strength" value="11"/>
     </beans:bean>
 
-    <aop:aspectj-autoproxy/>
-    <context:component-scan base-package="ua.training"/>
-    <aop:config proxy-target-class="true"/>
+
+
+
+
 </beans:beans>

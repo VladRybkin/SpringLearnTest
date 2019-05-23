@@ -32,9 +32,9 @@
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
-    <aop:aspectj-autoproxy/>
+    <!--<aop:aspectj-autoproxy/>-->
     <aop:config proxy-target-class="true"/>
-    <context:component-scan base-package="ua.training"/>
-    <context:annotation-config />
+
+
 
 </beans>

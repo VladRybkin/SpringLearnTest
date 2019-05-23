@@ -25,8 +25,14 @@ public class LoginController {
     private SecurityService securityService;
 
 //    @Autowired
-//    @Qualifier("encoder1")
+//    @Qualifier(value = "encoder")
 //    BCryptPasswordEncoder bCryptPasswordEncoder;
+
+
+//    @Autowired
+//    @Qualifier(value = "user1")
+//    private User user;
+
 
     @GetMapping
     public String getLoginPage(Model model) {

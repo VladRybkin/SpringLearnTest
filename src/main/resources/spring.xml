@@ -5,21 +5,21 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="
- http://www.springframework.org/schema/beans
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
          http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-3.2.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
-    <aop:aspectj-autoproxy/>
-    <context:component-scan base-package="ua.training"/>
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-    <bean class="ua.training.model.entity.User" name="user1" init-method="initPr">
+
+
+
+    <bean class="ua.training.model.entity.User" id="user1" init-method="initPr" autowire-candidate="true" autowire="byName">
         <property name="id" value="3"/>
         <property name="name" value="VladTv"/>
     </bean>
@@ -29,7 +29,8 @@
         <constructor-arg name="strength" value="11"/>
      </bean>
     <bean name="loggingAspect" class="ua.training.aspect.UserAspect"/>
-    <context:annotation-config />
+
+
 
 
 
