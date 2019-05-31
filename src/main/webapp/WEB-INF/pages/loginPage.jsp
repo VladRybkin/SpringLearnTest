@@ -20,7 +20,7 @@
     <label><input type="text" name="name"></label><id /><br>
     <label><input type="number" name="id"></label><id /><br>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    <input type="submit" value="register">
+    <input type="submit" value="login">
 
 </form>
 

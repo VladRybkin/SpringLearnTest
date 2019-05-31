@@ -2,19 +2,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop-3.1.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+        http://www.springframework.org/schema/aop/spring-aop-3.1.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
     <!--<mvc:resources mapping="/resources/**" location="/WEB-INF/"/>-->
-    <mvc:annotation-driven/>
-    <context:component-scan base-package="ua.training.*"/>
+    <tx:annotation-driven/>
+    <context:component-scan base-package="ua.training"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
@@ -22,7 +22,16 @@
     </bean>
 
 
-    <mvc:default-servlet-handler/>
+
+
+    <context:annotation-config />
+
     <mvc:annotation-driven/>
 
+    <aop:aspectj-autoproxy/>
+    <aop:config proxy-target-class="true"/>
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+
+    <import resource="appconfig-root.xml"/>
 </beans>

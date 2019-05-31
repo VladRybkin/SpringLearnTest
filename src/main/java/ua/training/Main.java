@@ -11,7 +11,6 @@ import ua.training.model.entity.User;
 import ua.training.model.dao.UserDao;
 import ua.training.service.UserService;
 
-import java.util.Optional;
 import java.util.function.Predicate;
 
 
@@ -21,7 +20,7 @@ public class Main {
 
 
     public static void main(String[] args)  {
-        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("spring.xml", "db.xml");
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext( "WEB-INF/spring.xml", "WEB-INF/db.xml");
 
 //        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/jpa.xml");
         User user=applicationContext.getBean("user1", User.class);

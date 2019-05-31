@@ -35,6 +35,9 @@
     <!--<aop:aspectj-autoproxy/>-->
     <aop:config proxy-target-class="true"/>
 
-
+    <bean class="ua.training.model.entity.User" id="user1" init-method="initPr" autowire-candidate="true">
+        <property name="id" value="3"/>
+        <property name="name" value="VladTv"/>
+    </bean>
 
 </beans>
