@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContext;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import ua.training.model.dao.HelloBuilder;
 import ua.training.model.entity.User;
@@ -20,7 +21,7 @@ public class Main {
 
 
     public static void main(String[] args)  {
-        ApplicationContext applicationContext=new ClassPathXmlApplicationContext( "WEB-INF/spring.xml", "WEB-INF/db.xml");
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext( "mvc-dispatcher-servlet.xml");
 
 //        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/jpa.xml");
         User user=applicationContext.getBean("user1", User.class);

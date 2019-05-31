@@ -17,8 +17,8 @@ import java.util.stream.Stream;
 @Service("UserService1")
 public class UserService {
 
-
-    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(11);
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
     private List<User> users;
