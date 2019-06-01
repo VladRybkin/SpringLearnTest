@@ -5,10 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import ua.training.model.entity.Role;
 import ua.training.model.entity.User;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
@@ -20,12 +23,14 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
+    private Set<Role> roles;
     private List<User> users;
 
     public UserService() {
         users = new CopyOnWriteArrayList<>();
-        users.add(new User(1, "Vlad"));
+        roles = new HashSet<>();
+        roles.add(new Role("ROLE_ADMIN"));
+        users.add(new User(1, "Vlad", "password", roles));
         users.add(new User(2, "Anton"));
         users.add(new User(3, "Oleg"));
     }
@@ -56,8 +61,6 @@ public class UserService {
     public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
-
-
 
 
 }

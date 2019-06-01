@@ -18,7 +18,7 @@
 <body>
 <form  method="post" action="" modelAttribute="userForm" >
     <label><input type="text" name="name"></label><id /><br>
-    <label><input type="number" name="id"></label><id /><br>
+    <label><input type="text" name="password"></label><id /><br>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="login">
 
