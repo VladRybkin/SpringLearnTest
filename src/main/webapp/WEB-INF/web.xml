@@ -6,12 +6,12 @@
 
     <display-name>Book Manager</display-name>
 
-    <!--<context-param>-->
-        <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>-->
-            <!--WEB-INF/appconfig-root.xml-->
-        <!--</param-value>-->
-    <!--</context-param>-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:mvc-dispatcher-servlet.xml
+        </param-value>
+    </context-param>
 
 
 
@@ -42,9 +42,9 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--</listener>-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
 
 </web-app>
