@@ -9,11 +9,11 @@
 		http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <http auto-config="true">
-        <intercept-url pattern="/" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
-        <intercept-url pattern="/welcome" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
-        <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
+        <!--<intercept-url pattern="/" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>-->
+        <intercept-url pattern="/sessionUser" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+        <!--<intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')"/>-->
 
-        <form-login login-page="/loginPage" default-target-url="/welcome" authentication-failure-url="/login?error"
+        <form-login login-page="/loginPage" default-target-url="/users" authentication-failure-url="/login?error"
                     username-parameter="name" password-parameter="password"/>
 
         <logout logout-success-url="/login?logout"/>
@@ -30,6 +30,7 @@
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>
     </beans:bean>
+
 
 
 

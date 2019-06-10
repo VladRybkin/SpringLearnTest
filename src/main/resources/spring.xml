@@ -26,17 +26,17 @@
     </bean>
 
 
-    <bean name="encoder1" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-        <constructor-arg name="strength" value="11"/>
-     </bean>
-    <bean name="loggingAspect" class="ua.training.aspect.UserAspect"/>
-    <bean id="loginController" class="ua.training.controller.LoginController"/>
+    <!--<bean name="encoder1" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->
+        <!--<constructor-arg name="strength" value="11"/>-->
+     <!--</bean>-->
+    <!--<bean name="loggingAspect" class="ua.training.aspect.UserAspect"/>-->
+
     <tx:annotation-driven/>
-    <context:component-scan base-package="ua.training"/>
+    <!--<context:component-scan base-package="ua.training"/>-->
     <context:annotation-config />
-    <!--<context:property-placeholder location="classpath:database.properties"/>-->
-    <mvc:annotation-driven/>
-    <tx:annotation-driven/>
+    <!--&lt;!&ndash;<context:property-placeholder location="classpath:database.properties"/>&ndash;&gt;-->
+    <!--<mvc:annotation-driven/>-->
+
     <aop:aspectj-autoproxy/>
     <aop:config proxy-target-class="true"/>
 

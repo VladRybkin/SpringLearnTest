@@ -45,7 +45,6 @@ public class UserService {
 
     public void removeUser(int id) {
         users.stream().filter(user -> user.getId() == id).forEach(users::remove);
-
     }
 
     public void removeUser(User user) {

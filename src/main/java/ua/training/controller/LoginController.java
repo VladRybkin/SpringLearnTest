@@ -7,9 +7,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import ua.training.model.entity.User;
 import ua.training.service.SecurityService;
 import ua.training.service.UserService;
@@ -38,7 +36,24 @@ public class LoginController {
 
     @PostMapping
     public String Login(@ModelAttribute("userForm") User userForm) {
+        System.out.println("sucess "+ userForm.getPassword());
         securityService.autoLogin(userForm.getName(), userForm.getPassword());
+
         return "redirect:/users";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model, String error, String logout) {
+
+
+        if (error != null) {
+            model.addAttribute("error", "Username or password is incorrect.");
+        }
+
+        if (logout != null) {
+            model.addAttribute("message", "Logged out successfully.");
+        }
+
+        return "login";
     }
 }
