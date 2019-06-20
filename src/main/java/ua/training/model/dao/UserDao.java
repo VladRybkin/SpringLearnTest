@@ -32,6 +32,7 @@ public class UserDao {
         jdbcTemplate.execute(String.format("INSERT INTO `springjdbc`.`users`(`user_id`, `user_name`) VALUES(%d, '%s');", id, name));
 
     }
+
     public List<User> getUsers() {
         return jdbcTemplate.query("select * from users", new UserRowMapper());
     }

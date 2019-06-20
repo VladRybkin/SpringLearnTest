@@ -10,7 +10,7 @@
 
     <http auto-config="true">
         <!--<intercept-url pattern="/" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>-->
-        <intercept-url pattern="/sessionUser" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+        <intercept-url pattern="/sessionUser" access="hasAnyRole('ROLE_ADMIN')"/>
         <!--<intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')"/>-->
 
         <form-login login-page="/loginPage" default-target-url="/users" authentication-failure-url="/login?error"
