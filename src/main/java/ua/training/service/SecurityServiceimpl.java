@@ -38,15 +38,13 @@ public class SecurityServiceimpl implements SecurityService {
                 new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
 
 
-        System.out.println("beforeAUTH");
-        authenticationManager.authenticate(authenticationToken);
-        System.out.println("aFTERAUTH");
-
+//        authenticationManager.authenticate(authenticationToken);
 
         if (authenticationToken.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
         }
+
 
     }
 }

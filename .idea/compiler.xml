@@ -9,8 +9,5 @@
         <module name="RESTapp" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="RESTapp" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
