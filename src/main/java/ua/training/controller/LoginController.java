@@ -36,7 +36,6 @@ public class LoginController {
 
     @PostMapping
     public String Login(@ModelAttribute("userForm") User userForm) {
-        System.out.println("sucess "+ userForm.getPassword());
         securityService.autoLogin(userForm.getName(), userForm.getPassword());
 
         return "redirect:/users";

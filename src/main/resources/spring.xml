@@ -17,9 +17,6 @@
         http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-
-
-
     <bean class="ua.training.model.entity.User" id="user2" init-method="initPr" autowire-candidate="true">
         <property name="id" value="3"/>
         <property name="name" value="VladTv"/>
@@ -27,19 +24,18 @@
 
 
     <!--<bean name="encoder1" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->
-        <!--<constructor-arg name="strength" value="11"/>-->
-     <!--</bean>-->
+    <!--<constructor-arg name="strength" value="11"/>-->
+    <!--</bean>-->
     <!--<bean name="loggingAspect" class="ua.training.aspect.UserAspect"/>-->
 
     <tx:annotation-driven/>
     <!--<context:component-scan base-package="ua.training"/>-->
-    <context:annotation-config />
+    <context:annotation-config/>
     <!--&lt;!&ndash;<context:property-placeholder location="classpath:database.properties"/>&ndash;&gt;-->
     <!--<mvc:annotation-driven/>-->
 
     <aop:aspectj-autoproxy/>
     <aop:config proxy-target-class="true"/>
-
 
 
 </beans>

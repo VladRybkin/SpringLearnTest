@@ -22,9 +22,7 @@
     </bean>
 
 
-
-
-    <context:annotation-config />
+    <context:annotation-config/>
 
     <mvc:annotation-driven/>
 
