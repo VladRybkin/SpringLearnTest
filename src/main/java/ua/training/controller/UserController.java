@@ -2,6 +2,7 @@ package ua.training.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -13,7 +14,7 @@ import ua.training.service.UserService;
 
 
 @Controller
-@SessionAttributes("name")
+@SessionAttributes(value = {"name", "currentUser"})
 @RequestMapping("/users")
 
 public class UserController {
@@ -23,6 +24,7 @@ public class UserController {
 
 
     @GetMapping
+    @Secured(value = "ROLE_ADMIN")
     public ModelAndView findAll(Model model) {
         ModelAndView modelAndView = new ModelAndView("users");
         model.addAttribute("userlast", userService.getUsers());

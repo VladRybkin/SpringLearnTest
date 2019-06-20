@@ -20,16 +20,13 @@ public class Main {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+//        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("Jpa.xml");
 //        UserDao userDao = applicationContext.getBean("UserDao", UserDao.class);
 //        System.out.println(userDao.getUsers());
 
 
     }
 
-    void daof(String a, String b) {
-        System.out.println(String.format("hello %s, %s", a, b));
-
-    }
 
 
 }

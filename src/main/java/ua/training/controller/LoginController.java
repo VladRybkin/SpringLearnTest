@@ -14,6 +14,7 @@ import ua.training.service.UserService;
 
 
 @Controller
+@SessionAttributes("currentUser")
 public class LoginController {
 
     @Autowired
@@ -33,9 +34,9 @@ public class LoginController {
 
 
     @PostMapping
-    public String Login(@ModelAttribute("userForm") User userForm) {
+    public String Login(@ModelAttribute("userForm") User userForm, Model model) {
         securityService.autoLogin(userForm.getName(), userForm.getPassword());
-
+        model.addAttribute("currentUser", "current name "+userForm.getName());
         return "redirect:/users";
     }
 

@@ -13,7 +13,7 @@
         <intercept-url pattern="/sessionUser" access="hasAnyRole('ROLE_ADMIN')"/>
         <!--<intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')"/>-->
 
-        <form-login login-page="/loginPage" default-target-url="/users" authentication-failure-url="/login?error"
+        <form-login login-page="/loginPage" default-target-url="/users" authentication-failure-url="/loginPage?error"
                     username-parameter="name" password-parameter="password"/>
 
         <logout logout-success-url="/login?logout"/>
@@ -30,10 +30,6 @@
                 class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="11"/>
     </beans:bean>
-
-
-
-
 
 
 </beans:beans>

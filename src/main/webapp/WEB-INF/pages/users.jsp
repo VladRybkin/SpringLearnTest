@@ -40,7 +40,7 @@
 
     <%--<h1>user</h1>--%>
     <%--<br/>--%>
-    <%--${user}--%>
+    ${currentUser}
 
     <br/>
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
