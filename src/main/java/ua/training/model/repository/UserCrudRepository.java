@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import ua.training.model.entity.User;
 
-@Repository("repo")
+@Repository
 public interface UserCrudRepository extends JpaRepository<User, Long> {
 
 

@@ -20,6 +20,7 @@
 
 <form  method="post" action="">
     <label><input type="text" name="stringParam"></label><id /><br>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="register"><br>
 </form>
 

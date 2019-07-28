@@ -16,8 +16,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Service("UserService1")
 public class UserService {
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     private Set<Role> adminRoles;
     private Set<Role> userRoles;
@@ -56,9 +55,7 @@ public class UserService {
     }
 
 
-    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-    }
+
 
 
 

@@ -38,12 +38,14 @@ public class SecurityServiceImpl implements SecurityService {
                 new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
 
 
+
 //        authenticationManager.authenticate(authenticationToken);
 
         if (authenticationToken.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 
         }
+
 
 
     }
