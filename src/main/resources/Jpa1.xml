@@ -1,98 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/jdbc
-        http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-4.3.xsd
-        http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
-        http://www.springframework.org/schema/util
-        http://www.springframework.org/schema/util/spring-util-4.3.xsd
-        http://www.springframework.org/schema/data/jpa
-        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="
+    		http://www.springframework.org/schema/beans
+    		http://www.springframework.org/schema/beans/spring-beans.xsd
 
-    <!-- Using Spring annotations -->
-    <tx:annotation-driven />
+    		http://www.springframework.org/schema/tx
+    		http://www.springframework.org/schema/tx/spring-tx.xsd
 
-    <!-- Activate scanning of @Autowired -->
-    <context:annotation-config />
+    		http://www.springframework.org/schema/context
+    		http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- Activate scanning of @Repository -->
-    <context:component-scan base-package="ua.training" />
+    <context:component-scan base-package="ua.training.*" />
 
-    <!-- Active scanning Repositories -->
-    <jpa:repositories base-package="ua.training.model.repository"></jpa:repositories>
-
-    <!-- Load JDBC properties -->
-    <!--<bean id="propertyConfigurer"-->
-          <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"-->
-          <!--p:location="classpath:jdbc.properties" />-->
-
-    <!-- Configure C3P0 -->
-    <bean id="dataSourceJPA" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/springjdbc"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-    </bean>
-
-    <bean id="jpaVendorAdapter"
-          class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="showSql" value="true" />
-        <property name="generateDdl" value="true" />
-        <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect" />
-    </bean>
-
-    <!-- Not sure if it's needed -->
-    <bean id="persistenceUnitManager"
-          class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
-        <property name="defaultDataSource" ref="dataSourceJPA" />
-        <property name="loadTimeWeaver">
-            <bean
-                    class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver" />
-        </property>
-    </bean>
-
-    <!-- Configure EntityManagerFactory -->
-    <bean id="entityManagerFactory"
-          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-
-        <property name="dataSource" ref="dataSourceJPA" />
-
-        <!-- Scannig model -->
-        <property name="packagesToScan">
-            <list>
-                <value>ua.training.model</value>
-            </list>
-        </property>
-
-        <property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
-        <property name="persistenceUnitManager" ref="persistenceUnitManager" />
-
-        <property name="jpaProperties">
-            <props>
-                <prop key="hibernate.c3p0.min_size">5</prop>
-                <prop key="hibernate.c3p0.max_size">20</prop>
-                <prop key="hibernate.c3p0.timeout">300</prop>
-                <prop key="hibernate.c3p0.max_statements">50</prop>
-                <prop key="hibernate.c3p0.idle_test_period">3000</prop>
-            </props>
-        </property>
-
-    </bean>
-
-    <!-- Configure transaction manager -->
+    <!-- ************ JPA configuration *********** -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"></property>
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceXmlLocation" value="classpath:config/persistence-demo.xml" />
+        <property name="dataSource" ref="restDemoDS" />
+        <property name="packagesToScan" value="ua.training.*" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="true" />
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+            </bean>
+        </property>
     </bean>
 
+    <bean id="podcastDao" class="org.codingpedia.demo.rest.dao.impl.PodcastDaoJPA2Impl"/>
+    <bean id="podcastRestService" class="org.codingpedia.demo.rest.service.PodcastRestService" >
+        <property name="podcastDao" ref="podcastDao"/>
+    </bean>
+
+    <bean id="restDemoDS" class="org.springframework.jndi.JndiObjectFactoryBean" scope="singleton">
+        <property name="jndiName" value="java:comp/env/jdbc/restDemoDB" />
+        <property name="resourceRef" value="true" />
+    </bean>
 </beans>

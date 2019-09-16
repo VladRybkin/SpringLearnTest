@@ -2,6 +2,7 @@ package ua.training.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ua.training.model.entity.Role;
@@ -52,6 +53,11 @@ public class UserService {
     public User findByUsernameAndPassword(String userName) {
         Optional<User> user = users.stream().filter(u -> u.getName().equals(userName)).findAny();
         return user.orElse(null);
+    }
+
+    @Scheduled(fixedDelay=5000)
+    void timesout(){
+        System.out.println("schedule sout");
     }
 
 

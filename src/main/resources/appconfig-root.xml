@@ -18,6 +18,7 @@
     <!--<mvc:resources mapping="/resources/**" location="/WEB-INF/"/>-->
     <import resource="db.xml"/>
 
+    <import resource="schedule.xml"/>
     <!--<import resource="Jpa.xml"/>-->
 
     <!--<import resource="appconfig-security.xml"/>-->

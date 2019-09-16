@@ -2,7 +2,10 @@ package ua.training.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class UserServiceTest {
 
@@ -15,7 +18,10 @@ public class UserServiceTest {
     public void findByUsernameAndPassword() {
 
         assertTrue(userService.findByUsernameAndPassword("Vlad") != null);
-
         System.out.println(userService.findByUsernameAndPassword("Vlad"));
+        UserService userService=mock(new UserService().getClass());
+        System.out.println(userService.getUsers());
+
+
     }
 }

@@ -3,25 +3,30 @@ package ua.training;
 
 import org.springframework.http.*;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import ua.training.model.entity.RestEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
 
 
     public static void main(String[] args) {
-//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-//        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("Jpa.xml");
-//        UserDao userDao = applicationContext.getBean("UserDao", UserDao.class);
-//        System.out.println(userDao.getUsers());
+        //        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        //        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("Jpa.xml");
+        //        UserDao userDao = applicationContext.getBean("UserDao", UserDao.class);
+        //        System.out.println(userDao.getUsers());
         System.out.println(getRest().getBody());
         System.out.println(getRest().getStatusCode().isError());
-//        System.out.println(sendEmptyPost().getStatusCode());
-//        System.out.println(sendPost());
+        //        System.out.println(sendEmptyPost().getStatusCode());
+        //        System.out.println(sendPost());
         System.out.println(sendPostRestEntity());
+
 
     }
 
@@ -37,7 +42,7 @@ public class Main {
 
     static ResponseEntity sendPost() {
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
-//    headers.add("Authorization", "Basic " + base64Creds);
+        //    headers.add("Authorization", "Basic " + base64Creds);
         headers.add("Content-Type", "application/json");
 
         RestTemplate restTemplate = new RestTemplate();
@@ -54,7 +59,7 @@ public class Main {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<?> httpEntity = new HttpEntity<Object>(null, requestHeaders);
+        HttpEntity<?> httpEntity = new HttpEntity<Object>(requestHeaders);
 
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.exchange("http://localhost:8888/restusers/addbody1", HttpMethod.POST, httpEntity, String.class);
@@ -65,11 +70,27 @@ public class Main {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<?> httpEntity = new HttpEntity<Object>(new RestEntity("firstname", "lastname"), requestHeaders);
+        HttpEntity<?> httpEntity = new HttpEntity<Object>(new RestEntity("fff", "lastnameff"), requestHeaders);
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        return restTemplate.exchange("http://localhost:8888/restusers/addbody", HttpMethod.POST, httpEntity, String.class);
+        ResponseEntity<String> responseEntity =
+                restTemplate.exchange("http://localhost:8888/restusers/addbody", HttpMethod.POST, httpEntity, String.class);
+        return responseEntity;
+
+    }
+
+    static ResponseEntity sendGetForEntity() {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<?> httpEntity = new HttpEntity<Object>(new RestEntity("fff", "lastnameff"), requestHeaders);
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        ResponseEntity<String[]> responseEntity =
+                restTemplate.getForEntity("http://localhost:8888/restusers/addbody", String[].class);
+        return responseEntity;
 
     }
 }
