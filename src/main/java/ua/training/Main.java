@@ -1,37 +1,98 @@
 package ua.training;
 
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.http.*;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
+import ua.training.model.entity.RestEntity;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import ua.training.model.dao.HelloBuilder;
-import ua.training.model.entity.User;
-import ua.training.model.dao.UserDao;
-import ua.training.service.UserService;
-
-import java.util.function.Predicate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
 
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-//        UserDao userDao = applicationContext.getBean("UserDao", UserDao.class);
-//        System.out.println(userDao.getUsers());
+        //        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        //        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("Jpa.xml");
+        //        UserDao userDao = applicationContext.getBean("UserDao", UserDao.class);
+        //        System.out.println(userDao.getUsers());
+        System.out.println(getRest().getBody());
+        System.out.println(getRest().getStatusCode().isError());
+        //        System.out.println(sendEmptyPost().getStatusCode());
+        //        System.out.println(sendPost());
+        System.out.println(sendPostRestEntity());
 
 
     }
 
-    void daof(String a, String b) {
-        System.out.println(String.format("hello %s, %s", a, b));
+    static ResponseEntity<String> getRest() {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<?> httpEntity = new HttpEntity<>(requestHeaders);
+
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.exchange("http://localhost:8888/restusers", HttpMethod.GET, httpEntity, String.class);
+    }
+
+    static ResponseEntity sendPost() {
+        MultiValueMap<String, String> headers = new LinkedMultiValueMap<String, String>();
+        //    headers.add("Authorization", "Basic " + base64Creds);
+        headers.add("Content-Type", "application/json");
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+
+        HttpEntity<RestEntity> request = new HttpEntity<RestEntity>(new RestEntity("nae1", "nae2"), headers);
+
+        return restTemplate.postForObject("http://localhost:8888/restusers/addbody", request, ResponseEntity.class);
 
     }
 
 
+    static ResponseEntity sendEmptyPost() {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<?> httpEntity = new HttpEntity<Object>(requestHeaders);
+
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.exchange("http://localhost:8888/restusers/addbody1", HttpMethod.POST, httpEntity, String.class);
+
+    }
+
+    static ResponseEntity sendPostRestEntity() {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<?> httpEntity = new HttpEntity<Object>(new RestEntity("fff", "lastnameff"), requestHeaders);
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        ResponseEntity<String> responseEntity =
+                restTemplate.exchange("http://localhost:8888/restusers/addbody", HttpMethod.POST, httpEntity, String.class);
+        return responseEntity;
+
+    }
+
+    static ResponseEntity sendGetForEntity() {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<?> httpEntity = new HttpEntity<Object>(new RestEntity("fff", "lastnameff"), requestHeaders);
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        ResponseEntity<String[]> responseEntity =
+                restTemplate.getForEntity("http://localhost:8888/restusers/addbody", String[].class);
+        return responseEntity;
+
+    }
 }
 
 

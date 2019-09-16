@@ -16,10 +16,14 @@
     <title>Title</title>
 </head>
 <body>
+<br>
+${currentUser}
+<br>
 
 
 <form  method="post" action="">
     <label><input type="text" name="stringParam"></label><id /><br>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="register"><br>
 </form>
 
@@ -37,8 +41,11 @@ ${userlast}
 
 <form method="post" action="">
     <label><input type="number" name="userId"></label><id /><br>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="remove"><br>
 </form>
 </body>
+
+
 
 </html>

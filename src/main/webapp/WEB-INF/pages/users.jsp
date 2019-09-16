@@ -17,11 +17,9 @@
 <div class="left">
     <form method="post" action="" modelAttribute="user">
         <label><input type="text" name="name"></label>
-        <id/>
         <br>
         <label><input type="number" name="id"></label>
-        <id/>
-        <br>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
         <input type="submit" value="register"><br>
 
@@ -40,7 +38,7 @@
 
     <%--<h1>user</h1>--%>
     <%--<br/>--%>
-    <%--${user}--%>
+    ${currentUser}
 
     <br/>
     <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">

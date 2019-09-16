@@ -2,6 +2,7 @@ package ua.training.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ua.training.model.entity.Role;
@@ -16,8 +17,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Service("UserService1")
 public class UserService {
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     private Set<Role> adminRoles;
     private Set<Role> userRoles;
@@ -55,10 +55,13 @@ public class UserService {
         return user.orElse(null);
     }
 
-
-    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    @Scheduled(fixedDelay=5000)
+    void timesout(){
+        System.out.println("schedule sout");
     }
+
+
+
 
 
 
