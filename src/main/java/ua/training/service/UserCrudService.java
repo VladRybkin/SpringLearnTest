@@ -11,7 +11,7 @@ import ua.training.model.repository.UserCrudRepository;
 public class UserCrudService {
 
     //     @Autowired(required = true)
-//             @Qualifier("repo")
+    //             @Qualifier("repo")
     UserCrudRepository userCrudRepository;
 
 

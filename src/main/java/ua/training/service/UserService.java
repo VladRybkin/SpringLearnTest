@@ -18,7 +18,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class UserService {
 
 
-
     private Set<Role> adminRoles;
     private Set<Role> userRoles;
     private List<User> users;
@@ -26,7 +25,7 @@ public class UserService {
     public UserService() {
         users = new CopyOnWriteArrayList<>();
         adminRoles = new HashSet<>();
-        userRoles=new HashSet<>();
+        userRoles = new HashSet<>();
         adminRoles.add(new Role("ROLE_ADMIN"));
         userRoles.add(new Role("ROLE_USER"));
         users.add(new User(1, "Vlad", "password", adminRoles));
@@ -54,15 +53,6 @@ public class UserService {
         Optional<User> user = users.stream().filter(u -> u.getName().equals(userName)).findAny();
         return user.orElse(null);
     }
-
-    @Scheduled(fixedDelay=5000)
-    void timesout(){
-        System.out.println("schedule sout");
-    }
-
-
-
-
 
 
 }
