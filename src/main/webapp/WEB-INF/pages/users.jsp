@@ -4,11 +4,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
+
 <html>
+
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Login page</title>
+    <style><%@include file="/WEB-INF/pages/css/style.css"%></style>
 </head>
 <body>
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
 
 <h2>Hello World!</h2>
 <br/>
@@ -25,19 +30,12 @@
 
     </form>
 
-    <%--<h1>param1</h1>--%>
-    <%--<br/>--%>
-    <%--${param1}--%>
-    <%--<br/>--%>
 
-    <%--<h1>param</h1>--%>
-    <%--<br/>--%>
 
-    <%--${param}--%>
-    <%--<br/>--%>
+    <a href="/logout">logout</a>
 
-    <%--<h1>user</h1>--%>
-    <%--<br/>--%>
+
+
     ${currentUser}
 
     <br/>
@@ -80,119 +78,6 @@
 </body>
 
 
-<style>
-    .align {
-        margin-top: 3px;
-    }
 
-    .inner {
-        border: 1px solid black;
-        height: 120px;
-        width: 590px;
-        margin-top: 10px;
-        margin-left: 70px;
-        background: #fafafa;
-    }
-
-    .head {
-
-        height: 700px;
-    }
-
-    .right {
-        float: right;
-        width: 25%;
-        height: 100%;
-        border: 1px solid black;
-        background-color: cornflowerblue;
-
-    }
-
-    .left {
-        float: left;
-        width: 25%;
-        height: 99.5%;
-        border: 1px solid black;
-
-    }
-
-    .center {
-        border: 1px solid black;
-        float: left;
-        height: 99.5%;
-        width: 49.6%;
-
-    }
-
-    .header1 {
-        text-align: center;
-    }
-
-    #check {
-        margin-left: 81px
-    }
-
-    #remember {
-        margin-left: 0px
-    }
-
-    #pass {
-        margin-left: 22.5px
-    }
-
-    #login {
-        margin-left: 30px
-    }
-
-    .inner > div {
-        margin: 10px;
-    }
-
-    header {
-        background-color: white;
-        text-align: right;
-        border: 1px solid #acadac;
-    }
-
-    footer {
-        background-color: #00FFFF;
-        text-align: center;
-    }
-
-    .back {
-        margin-top: 3px;
-        margin-left: 5px;
-    }
-
-    red {
-        color: red;
-    }
-
-    table {
-        margin-top: 10px;
-        margin-left: 50px;
-        border: 1px solid #939694;
-    }
-
-    .td {
-        width: 407px;
-        margin-left: -70px
-
-    }
-
-    .button {
-        width: 80px
-    }
-
-    #size {
-        width: 500px;
-    }
-
-    #td {
-        margin-left: -335px
-    }
-
-
-</style>
 
 </html>

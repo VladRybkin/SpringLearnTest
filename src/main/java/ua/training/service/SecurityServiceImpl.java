@@ -32,6 +32,8 @@ public class SecurityServiceImpl implements SecurityService {
         return null;
     }
 
+
+
     @Override
     public void autoLogin(String username, String password) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
@@ -47,6 +49,7 @@ public class SecurityServiceImpl implements SecurityService {
         }
 
     }
+
 
 
 

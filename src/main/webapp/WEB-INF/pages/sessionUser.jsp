@@ -19,6 +19,8 @@
 <br>
 ${currentUser}
 <br>
+<a href="/logout">logout</a>
+<br>
 
 
 <form  method="post" action="">
@@ -44,6 +46,7 @@ ${userlast}
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="remove"><br>
 </form>
+
 </body>
 
 

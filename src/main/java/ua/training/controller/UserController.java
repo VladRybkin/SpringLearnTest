@@ -14,9 +14,10 @@ import ua.training.model.entity.User;
 import ua.training.service.SecurityService;
 import ua.training.service.UserService;
 
-@Secured({"ROLE_ADMIN", "ROLE_USER"})
+
 @Controller
 @SessionAttributes(value = {"name", "currentUser"})
+@Secured({"ROLE_ADMIN", "ROLE_USER"})
 @RequestMapping("/users")
 
 public class UserController {
@@ -41,6 +42,8 @@ public class UserController {
 
         return new RedirectView("redirect:/users");
     }
+
+
 
 
 }
