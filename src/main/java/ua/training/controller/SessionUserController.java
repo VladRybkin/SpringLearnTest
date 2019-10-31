@@ -1,9 +1,7 @@
 package ua.training.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
@@ -37,6 +35,7 @@ public class SessionUserController {
         if (id != null) {
             userService.removeUser(id);
         }
+
 
         return "redirect:users";
     }

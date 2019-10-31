@@ -1,15 +1,15 @@
 package ua.training.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Version;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import ua.training.model.entity.RestEntity;
 import ua.training.model.entity.User;
 import ua.training.service.UserService;
+
+import java.util.List;
 
 
 @RestController
@@ -20,8 +20,8 @@ public class UserRestController {
     UserService userService;
 
     @GetMapping
-    String getUsers() {
-        return userService.getUsers().toString();
+    public List<User> getUsers() {
+        return userService.getUsers();
     }
 
     @PostMapping(value = "/add", produces = {MediaType.APPLICATION_JSON_VALUE})

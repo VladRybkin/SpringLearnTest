@@ -1,0 +1,28 @@
+package ua.training.model.dto;
+
+import com.fasterxml.jackson.annotation.*;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+
+public class UserDTO {
+
+    @JsonProperty("name")
+    private String name;
+
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+}

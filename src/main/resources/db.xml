@@ -13,7 +13,9 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-3.2.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+         http://www.springframework.org/schema/mvc
+          http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
     <bean name="UserDao" class="ua.training.model.dao.UserDao">
@@ -36,7 +38,7 @@
 
     <bean class="ua.training.model.entity.User" id="user1" init-method="initPr" autowire-candidate="true">
         <property name="id" value="3"/>
-        <property name="name" value="VladTv"/>
+        <property name="name" value="${user.name.pr}"/>
     </bean>
-
+    <context:property-placeholder location="classpath:local.properties"/>
 </beans>
