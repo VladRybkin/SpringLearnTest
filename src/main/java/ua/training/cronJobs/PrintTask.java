@@ -3,7 +3,7 @@ package ua.training.cronJobs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import ua.training.service.UserService;
+import ua.training.service.impl.UserService;
 
 @Component
 public class PrintTask {

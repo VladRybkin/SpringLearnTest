@@ -1,4 +1,4 @@
-package ua.training.service;
+package ua.training.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

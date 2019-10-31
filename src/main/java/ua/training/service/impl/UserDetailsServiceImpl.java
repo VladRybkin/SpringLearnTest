@@ -1,4 +1,4 @@
-package ua.training.service;
+package ua.training.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

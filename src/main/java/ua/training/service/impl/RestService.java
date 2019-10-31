@@ -1,4 +1,4 @@
-package ua.training.service.sendRest;
+package ua.training.service.impl;
 
 import org.springframework.http.*;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;

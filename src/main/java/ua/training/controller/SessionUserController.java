@@ -2,7 +2,6 @@ package ua.training.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -10,9 +9,9 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.*;
 
-import ua.training.service.UserService;
+import ua.training.service.impl.UserService;
 
-@Secured({"ROLE_ADMIN", "ROLE_USER"})
+@Secured({"ROLE_ADMIN", "ROLE_USER", "ROLE_ANONYMOUS"})
 @Controller
 @SessionAttributes(value = {"name", "currentUser"})
 @RequestMapping("/sessionUser")

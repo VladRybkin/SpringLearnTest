@@ -36,7 +36,7 @@
 
 
     <form  method="POST" action="${contextPath}/perform_logout">
-        <input type="submit" value="logoutsubmit">
+        <input type="submit" value="logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
 

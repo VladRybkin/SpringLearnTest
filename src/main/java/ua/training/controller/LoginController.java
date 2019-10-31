@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ua.training.model.entity.User;
 import ua.training.service.SecurityService;
-import ua.training.service.UserService;
+import ua.training.service.impl.UserService;
 
 
 @Controller

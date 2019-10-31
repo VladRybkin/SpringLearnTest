@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.training.model.entity.RestEntity;
 import ua.training.model.entity.User;
-import ua.training.service.UserService;
+import ua.training.service.impl.UserService;
 
 import java.util.List;
 

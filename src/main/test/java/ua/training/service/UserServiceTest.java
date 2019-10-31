@@ -3,35 +3,39 @@ package ua.training.service;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-
 import org.mockito.junit.jupiter.MockitoExtension;
 import ua.training.controller.UserRestController;
 import ua.training.model.entity.User;
+import ua.training.service.impl.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+class UserServiceTest {
+
 
     @Mock
-    public UserService userServicemock;
+    private UserService userServicemock;
 
     @Mock
-    User mockUser;
+    private User mockUser;
 
     @Mock
-    UserRestController userControllerMock;
+    private UserRestController userControllerMock;
 
-    List mockList = mock(ArrayList.class);
+    @Mock
+    private List mockList;
+
 
     @Test
-    void findByUsernameAndPassword() {
+    void getUsers() {
         lenient().when(userServicemock.getUsers()).thenReturn(mockList);
-        when(userServicemock.getUsers()).thenReturn(mockList);
-        when(mockList.add(anyString())).thenReturn(true);
+        lenient().when(userServicemock.getUsers()).thenReturn(mockList);
+        lenient().when(mockList.add(anyString())).thenReturn(true);
         userServicemock.getUsers();
         verify(userServicemock).getUsers();
 
@@ -39,9 +43,10 @@ public class UserServiceTest {
 
     @Test
     void shouldVerify() {
-//        when(userControllerMock.getUsers()).thenReturn("new");
-        userControllerMock.getUsers();
-        verify(userControllerMock).getUsers();
-        //        assertThrows(RuntimeException.class, userServicemock::getUsers);
+        //        when(userControllerMock.getUsers()).thenReturn("new");
+
+//        verify(userServicemock).getUsers();
+        //        assertThrows(RuntimeException
+
     }
 }

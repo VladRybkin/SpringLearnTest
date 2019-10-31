@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import ua.training.model.entity.User;
 
-import ua.training.service.UserService;
+import ua.training.service.impl.UserService;
 
 
 @Controller
