@@ -20,7 +20,15 @@
         <form-login login-page="/loginPage" default-target-url="/users" authentication-failure-url="/loginPage?error"
                     username-parameter="name" password-parameter="password"/>
 
-        <logout logout-success-url="/login?logout"/>
+
+
+
+
+        <logout logout-success-url="/loginPage"
+                logout-url="/perform_logout"
+                invalidate-session="true"
+                delete-cookies="JSESSIONID"/>
+
     </http>
 
 

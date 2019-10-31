@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
+
 <%@ page session="false" %>
 
 <html>
@@ -32,7 +33,8 @@
 
 
 
-    <a href="/logout">logout</a>
+    <a href="/perform_logout">logout</a>
+
 
 
 
