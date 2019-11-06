@@ -1,0 +1,1 @@
+[User{id=1, name='Vlad', password='password', roles=[Role{id=null, name='ROLE_ADMIN', users=null}]}, User{id=2, name='Anton', password='password', roles=[Role{id=null, name='ROLE_USER', users=null}]}, User{id=3, name='Oleg', password='null', roles=null}]

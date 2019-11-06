@@ -1,4 +1,4 @@
-package ua.training.controller;
+package ua.training.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,10 +37,11 @@ public class UserRestController {
 
         return new ResponseEntity<>(restEntity, HttpStatus.OK);
     }
+
     @PostMapping(value = "/addbody1", produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<RestEntity> addUserBody1() {
         userService.addUser(new User(3, "body1"));
-        return new ResponseEntity<>( HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

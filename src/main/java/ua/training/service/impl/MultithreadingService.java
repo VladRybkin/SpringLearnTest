@@ -16,11 +16,13 @@ public class MultithreadingService {
         runnables.add(new MyRunnable2());
         runnables.add(new MyRunnable3());
 
-        ExecutorService service = Executors.newFixedThreadPool(2);
-        runnables.forEach(service::submit);
-
-        service.shutdown();
-
+//        ExecutorService service = Executors.newFixedThreadPool(2);
+//        runnables.forEach(service::submit);
+//
+//        service.shutdown();
+        ThreadPoolExecutor executor= (ThreadPoolExecutor) Executors.newFixedThreadPool(2);
+        runnables.forEach(executor::submit);
+        executor.shutdown();
 
     }
 

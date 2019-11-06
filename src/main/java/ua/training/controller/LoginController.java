@@ -32,13 +32,9 @@ public class LoginController {
     @PostMapping
     public String Login(@ModelAttribute("userForm") User userForm, Model model) {
         securityService.autoLogin(userForm.getName(), userForm.getPassword());
-        model.addAttribute("currentUser", "current name "+userForm.getName());
+        model.addAttribute("currentUser", "current name " + userForm.getName());
         return "redirect:/users";
     }
-
-
-
-
 
 
 }

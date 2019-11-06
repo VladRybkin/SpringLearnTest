@@ -11,22 +11,10 @@
 		 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="ua.training*"/>
-    <context:annotation-config />
-
-    <mvc:annotation-driven/>
-    <tx:annotation-driven/>
-    <aop:aspectj-autoproxy/>
-    <aop:config proxy-target-class="true"/>
-
-    <!--<mvc:resources mapping="/resources/**" location="/WEB-INF/"/>-->
     <import resource="db.xml"/>
-
     <import resource="schedule.xml"/>
-    <!--<import resource="Jpa.xml"/>-->
-
-    <!--<import resource="appconfig-security.xml"/>-->
     <import resource="appconfig-security.xml"/>
-    <!--<import resource="../webapp/WEB-INF/mvc-dispatcher-servlet.xml"/>-->
+
 
 
 

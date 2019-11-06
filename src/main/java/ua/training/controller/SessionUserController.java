@@ -16,7 +16,6 @@ import ua.training.service.impl.UserService;
 @SessionAttributes(value = {"name", "currentUser"})
 @RequestMapping("/sessionUser")
 
-
 public class SessionUserController {
 
     @Autowired
@@ -28,13 +27,13 @@ public class SessionUserController {
         model.addAttribute("userlast", userService.getUsers());
         return "sessionUser";
     }
+
     @Secured("ROLE_ADMIN")
     @PostMapping
     public String remove(@RequestParam(value = "userId") Integer id) {
         if (id != null) {
             userService.removeUser(id);
         }
-
 
         return "redirect:users";
     }

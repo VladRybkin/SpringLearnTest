@@ -104,12 +104,10 @@ public class User {
                 '}';
     }
 
-    public void print(){
-        System.out.println();
-    }
+
 
     public void initPr(){
-        System.out.println("init method xml"+getClass());
+        System.out.println("init method xml called"+getClass());
     }
 
 }
