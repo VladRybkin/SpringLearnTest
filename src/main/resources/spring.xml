@@ -11,10 +11,11 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
 
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.2.xsd  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd  http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-    <bean class="ua.training.model.entity.User" id="user2" init-method="initPr" autowire-candidate="true">
+    <bean class="ua.training.model.entity.User" id="user2" init-method="initPr" >
         <property name="id" value="3"/>
         <property name="name" value="VladTv"/>
     </bean>

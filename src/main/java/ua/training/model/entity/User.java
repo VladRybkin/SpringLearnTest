@@ -3,6 +3,7 @@ package ua.training.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -108,6 +109,10 @@ public class User {
 
     public void initPr(){
         System.out.println("init method xml called"+getClass());
+    }
+    @PostConstruct
+    void postConst(){
+        System.out.println("post constr called");
     }
 
 }
