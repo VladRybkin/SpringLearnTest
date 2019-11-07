@@ -6,7 +6,7 @@ import ua.training.model.entity.User;
 
 import java.util.List;
 
-public interface BookService {
+public interface HibernateUserService {
     public void addBook(SimpleUser book);
 
     public void updateBook(SimpleUser book);

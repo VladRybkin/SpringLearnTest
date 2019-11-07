@@ -16,9 +16,9 @@
     <!-- Database Information -->
     <bean id="dataSourceHIB" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/springjdbc"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
+        <property name="url" value="jdbc:mysql://192.168.99.100:3306/db_example"/>
+        <property name="username" value="user"/>
+        <property name="password" value="password"/>
     </bean>
 
     <!-- Hibernate 4 SessionFactory Bean definition -->
@@ -39,12 +39,12 @@
         </property>
     </bean>
 
-    <!--UserDaoHib and BookService beans-->
+    <!--UserDaoHib and HibernateUserService beans-->
     <bean id="userDaoHib" class="ua.training.model.dao.UserDaoImpl">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
 
-    <bean id="bookService" class="ua.training.service.impl.BookServiceImpl">
+    <bean id="bookService" class="ua.training.service.impl.HibernateUserServiceImpl">
         <property name="userDaoHib" ref="userDaoHib"/>
     </bean>
 

@@ -5,13 +5,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.training.model.dao.UserDaoHib;
 import ua.training.model.entity.SimpleUser;
-import ua.training.model.entity.User;
-import ua.training.service.BookService;
+import ua.training.service.HibernateUserService;
 
 import java.util.List;
 
 @Service
-public class BookServiceImpl implements BookService {
+public class HibernateUserServiceImpl implements HibernateUserService {
 
     private UserDaoHib userDaoHib;
 
