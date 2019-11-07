@@ -17,14 +17,14 @@ import java.sql.ResultSet;
 import java.util.List;
 
 
-public class UserDao {
+public class JDBCUserDao {
 
     private JdbcTemplate jdbcTemplate;
 
     private DataSource dataSource;
 
 
-    public UserDao() {
+    public JDBCUserDao() {
     }
 
 

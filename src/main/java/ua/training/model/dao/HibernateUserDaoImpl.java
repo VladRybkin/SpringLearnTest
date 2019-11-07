@@ -12,8 +12,8 @@ import ua.training.model.entity.User;
 import java.util.List;
 
 @Repository
-public class UserDaoImpl implements UserDaoHib {
-    private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
+public class HibernateUserDaoImpl implements HibernateUserDao {
+    private static final Logger logger = LoggerFactory.getLogger(HibernateUserDaoImpl.class);
 
     private SessionFactory sessionFactory;
 
@@ -60,12 +60,8 @@ public class UserDaoImpl implements UserDaoHib {
     @SuppressWarnings("unchecked")
     public List<SimpleUser> listBooks() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<SimpleUser> bookList = session.createQuery("from users").list();
+        List<SimpleUser> simpleUsers = session.createNativeQuery("SELECT * FROM simpleusers", SimpleUser.class).list();
 
-        for(SimpleUser book: bookList){
-            logger.info("Book list: " + book);
-        }
-
-        return bookList;
+        return simpleUsers;
     }
 }

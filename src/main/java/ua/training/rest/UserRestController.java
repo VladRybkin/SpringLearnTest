@@ -1,12 +1,15 @@
 package ua.training.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.training.model.entity.RestEntity;
 import ua.training.model.entity.User;
+import ua.training.service.HibernateUserService;
+import ua.training.service.impl.UserCrudService;
 import ua.training.service.impl.UserService;
 
 import java.util.List;
@@ -19,8 +22,12 @@ public class UserRestController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    UserCrudService userCrudService;
+
     @GetMapping
     public List<User> getUsers() {
+        System.out.println(userCrudService.findAllSimpleUsers());
         return userService.getUsers();
     }
 

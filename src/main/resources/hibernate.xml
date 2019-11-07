@@ -39,13 +39,13 @@
         </property>
     </bean>
 
-    <!--UserDaoHib and HibernateUserService beans-->
-    <bean id="userDaoHib" class="ua.training.model.dao.UserDaoImpl">
+    <!--HibernateUserDao and HibernateUserService beans-->
+    <bean id="userDaoHib" class="ua.training.model.dao.HibernateUserDaoImpl">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
 
-    <bean id="bookService" class="ua.training.service.impl.HibernateUserServiceImpl">
-        <property name="userDaoHib" ref="userDaoHib"/>
+    <bean id="hibernateUserService" class="ua.training.service.impl.HibernateUserServiceImpl">
+        <property name="hibernateUserDao" ref="userDaoHib"/>
     </bean>
 
     <context:component-scan base-package="ua.training"/>

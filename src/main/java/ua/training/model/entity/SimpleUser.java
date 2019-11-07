@@ -3,14 +3,14 @@ package ua.training.model.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "simpleusers")
 public class SimpleUser {
 
     @Id
     @GeneratedValue
-    @Column(name = "USER_ID")
+    @Column(name = "id")
     private int id;
-    @Column(name = "name")
+    @Column(name = "username")
     private String name;
 
     public SimpleUser() {
