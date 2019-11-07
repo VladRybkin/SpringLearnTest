@@ -34,9 +34,11 @@
     <bean id="transactionManager"
             class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        
     </bean>
 
     <tx:annotation-driven/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <jpa:repositories base-package="ua.training.model.repository"/>
 </beans>

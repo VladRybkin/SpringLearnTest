@@ -14,7 +14,8 @@
     <import resource="db.xml"/>
     <import resource="schedule.xml"/>
     <import resource="appconfig-security.xml"/>
-    <!--<import resource="Jpa.xml"/>-->
+    <import resource="hibernate.xml"/>
+    <import resource="Jpa.xml"/>
 
 
 </beans>
