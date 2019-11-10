@@ -25,32 +25,32 @@ public class HibernateUserServiceImpl implements HibernateUserService {
 
     @Override
     @Transactional
-    public void addBook(SimpleUser book) {
-        this.hibernateUserDao.addBook(book);
+    public void addUser(SimpleUser simpleUser) {
+        this.hibernateUserDao.addUser(simpleUser);
     }
 
     @Override
     @Transactional
-    public void updateBook(SimpleUser book) {
-        this.hibernateUserDao.updateBook(book);
+    public void updateUser(SimpleUser simpleUser) {
+        this.hibernateUserDao.updateUser(simpleUser);
     }
 
     @Override
     @Transactional
-    public void removeBook(int id) {
-        this.hibernateUserDao.removeBook(id);
+    public void removeUser(int id) {
+        this.hibernateUserDao.removeUser(id);
     }
 
     @Override
     @Transactional
-    public SimpleUser getBookById(int id) {
-        return this.hibernateUserDao.getBookById(id);
+    public SimpleUser getUserById(int id) {
+        return this.hibernateUserDao.getUserById(id);
     }
 
     @Override
     @Transactional
-    public List<SimpleUser> listBooks() {
+    public List<SimpleUser> listUsers() {
         System.out.println("jpa listbooks "+ simpleUserCrudRepository.findAll());
-        return this.hibernateUserDao.listBooks();
+        return this.hibernateUserDao.listUsers();
     }
 }

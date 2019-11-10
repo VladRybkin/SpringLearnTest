@@ -7,13 +7,13 @@ import ua.training.model.entity.User;
 import java.util.List;
 
 public interface HibernateUserService {
-    public void addBook(SimpleUser book);
+    public void addUser(SimpleUser book);
 
-    public void updateBook(SimpleUser book);
+    public void updateUser(SimpleUser simpleUser);
 
-    public void removeBook(int id);
+    public void removeUser(int id);
 
-    public SimpleUser getBookById(int id);
+    public SimpleUser getUserById(int id);
 
-    public List<SimpleUser> listBooks();
+    public List<SimpleUser> listUsers();
 }

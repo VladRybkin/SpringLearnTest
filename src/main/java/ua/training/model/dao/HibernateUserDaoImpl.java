@@ -23,21 +23,21 @@ public class HibernateUserDaoImpl implements HibernateUserDao {
     }
 
     @Override
-    public void addBook(SimpleUser book) {
+    public void addUser(SimpleUser book) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(book);
         logger.info("Book successfully saved. Book details: " + book);
     }
 
     @Override
-    public void updateBook(SimpleUser book) {
+    public void updateUser(SimpleUser book) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(book);
         logger.info("Book successfully update. Book details: " + book);
     }
 
     @Override
-    public void removeBook(int id) {
+    public void removeUser(int id) {
         Session session = this.sessionFactory.getCurrentSession();
         User book = (User) session.load(User.class, id);
 
@@ -48,7 +48,7 @@ public class HibernateUserDaoImpl implements HibernateUserDao {
     }
 
     @Override
-    public SimpleUser getBookById(int id) {
+    public SimpleUser getUserById(int id) {
         Session session =this.sessionFactory.getCurrentSession();
         SimpleUser book = (SimpleUser) session.load(SimpleUser.class, new Integer(id));
         logger.info("Book successfully loaded. Book details: " + book);
@@ -58,7 +58,7 @@ public class HibernateUserDaoImpl implements HibernateUserDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<SimpleUser> listBooks() {
+    public List<SimpleUser> listUsers() {
         Session session = this.sessionFactory.getCurrentSession();
         List<SimpleUser> simpleUsers = session.createNativeQuery("SELECT * FROM simpleusers", SimpleUser.class).list();
 
