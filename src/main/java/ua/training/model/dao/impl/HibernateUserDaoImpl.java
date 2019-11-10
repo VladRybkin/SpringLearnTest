@@ -1,4 +1,4 @@
-package ua.training.model.dao;
+package ua.training.model.dao.impl;
 
 
 import org.hibernate.Session;
@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import ua.training.model.dao.HibernateUserDao;
 import ua.training.model.entity.SimpleUser;
 import ua.training.model.entity.User;
 

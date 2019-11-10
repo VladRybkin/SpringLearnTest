@@ -27,7 +27,6 @@ public class UserRestController {
 
     @GetMapping
     public List<User> getUsers() {
-        System.out.println(userCrudService.findAllSimpleUsers());
         return userService.getUsers();
     }
 

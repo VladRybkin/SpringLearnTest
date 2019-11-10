@@ -17,6 +17,7 @@ public class UserCrudService {
 
     @Transactional
     public List<SimpleUser> findAllSimpleUsers(){
+        
        return simpleUserCrudRepository.findAll();
 
     }
