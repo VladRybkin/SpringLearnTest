@@ -1,20 +1,29 @@
 package ua.training.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ua.training.model.entity.User;
-import ua.training.model.repository.UserCrudRepository;
+import ua.training.model.entity.SimpleUser;
+import ua.training.model.repository.SimpleUserCrudRepository;
+
+import java.util.List;
 
 @Service
 public class UserCrudService {
 
-    //     @Autowired(required = true)
-    //             @Qualifier("repo")
-    UserCrudRepository userCrudRepository;
+    @Autowired
+    SimpleUserCrudRepository simpleUserCrudRepository;
 
 
     @Transactional
-    public void add(User user) {
-        userCrudRepository.save(user);
+    public List<SimpleUser> findAllSimpleUsers(){
+        
+       return simpleUserCrudRepository.findAll();
+
+    }
+
+    @Transactional
+    public void add(SimpleUser user) {
+        simpleUserCrudRepository.save(user);
     }
 }

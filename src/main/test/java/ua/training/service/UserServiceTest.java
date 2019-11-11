@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ua.training.controller.UserRestController;
+import ua.training.rest.UserRestController;
 import ua.training.model.entity.User;
 import ua.training.service.impl.UserService;
 

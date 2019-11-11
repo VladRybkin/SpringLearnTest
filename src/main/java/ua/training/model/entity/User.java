@@ -3,14 +3,14 @@ package ua.training.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.annotation.PostConstruct;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
+
 public class User {
+
 
     private int id;
 
@@ -19,7 +19,6 @@ public class User {
     private String password;
 
     private Set<Role> roles;
-
 
 
     public User(int id, String name) {
@@ -73,14 +72,24 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         User user = (User) o;
 
-        if (id != user.id) return false;
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        if (id != user.id) {
+            return false;
+        }
+        if (name != null ? !name.equals(user.name) : user.name != null) {
+            return false;
+        }
+        if (password != null ? !password.equals(user.password) : user.password != null) {
+            return false;
+        }
         return roles != null ? roles.equals(user.roles) : user.roles == null;
     }
 
@@ -104,12 +113,14 @@ public class User {
                 '}';
     }
 
-    public void print(){
-        System.out.println();
+
+    public void initPr() {
+        System.out.println("init method xml called" + getClass());
     }
 
-    public void initPr(){
-        System.out.println("init method xml"+getClass());
+    @PostConstruct
+    void postConst() {
+        System.out.println("post constr called");
     }
 
 }

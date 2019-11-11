@@ -6,9 +6,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+
 @Aspect
 public class UserAspect {
-    private int count = 0;
+
 
     @Pointcut("execution(* get*(..))")
     public void beforeAllget() {
@@ -21,14 +22,15 @@ public class UserAspect {
 
     @Before("beforeAllget()")
     public void getAdvice() {
-        count++;
+
+        System.out.println("ggff");
 
     }
 
     @After("beforeprint()")
     public void printAdvice(JoinPoint joinPoint) {
 
-        System.out.println("advice method called count = " + count+ " "+joinPoint.getClass());
+        System.out.println("advice method called count = " + " " + joinPoint.getClass());
 
     }
 

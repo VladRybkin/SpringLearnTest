@@ -11,14 +11,9 @@
      http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 
-    <bean id="dataSourceJPA" class="org.springframework.jdbc.datasource.DriverManagerDataSource" p:url="jdbc:mysql://localhost:3306/springjdbc">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-    </bean>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSourceJPA"/>
+        <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="ua.training.model.entity"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
@@ -34,9 +29,11 @@
     <bean id="transactionManager"
             class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
+
     </bean>
 
     <tx:annotation-driven/>
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
 
     <jpa:repositories base-package="ua.training.model.repository"/>
 </beans>
