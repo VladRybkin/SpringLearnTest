@@ -37,7 +37,7 @@
     <mvc:default-servlet-handler/>
     <security:global-method-security secured-annotations="enabled"
             jsr250-annotations="enabled"
-            pre-post-annotations="enabled"/>
+            pre-post-annotations="enabled" />
 
     <import resource="appconfig-root.xml"/>
 

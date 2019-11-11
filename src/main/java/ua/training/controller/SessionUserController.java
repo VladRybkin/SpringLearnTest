@@ -28,7 +28,7 @@ public class SessionUserController {
         return "sessionUser";
     }
 
-    @Secured("ROLE_ADMIN")
+
     @PostMapping
     public String remove(@RequestParam(value = "userId") Integer id) {
         if (id != null) {

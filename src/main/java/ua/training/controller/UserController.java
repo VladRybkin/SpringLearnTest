@@ -17,6 +17,7 @@ import ua.training.service.impl.UserService;
 @Controller
 @SessionAttributes(value = {"name", "currentUser"})
 @Secured({"ROLE_ADMIN", "ROLE_USER"})
+
 @RequestMapping("/users")
 
 public class UserController {
@@ -34,7 +35,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @Secured({"ROLE_ADMIN", "ROLE_USER"})
+
     @PostMapping
     public RedirectView submit(@ModelAttribute("user") User user) {
         userService.addUser(user);
