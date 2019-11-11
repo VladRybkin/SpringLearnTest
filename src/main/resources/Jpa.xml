@@ -11,11 +11,6 @@
      http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 
-    <!--<bean id="dataSourceJPA" class="org.springframework.jdbc.datasource.DriverManagerDataSource" p:url="jdbc:mysql://192.168.99.100:3306/db_example">-->
-        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
-        <!--<property name="username" value="user"/>-->
-        <!--<property name="password" value="password"/>-->
-    <!--</bean>-->
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>

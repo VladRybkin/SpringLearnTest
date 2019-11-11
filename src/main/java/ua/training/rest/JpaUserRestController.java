@@ -19,13 +19,14 @@ public class JpaUserRestController {
 
     @GetMapping
     public List<SimpleUser> getUsers() {
+
         return userCrudService.findAllSimpleUsers();
     }
 
 
     @PostMapping
     public SimpleUser addUser(@RequestBody SimpleUser simpleUser) {
-//        userCrudService.add(simpleUser);
+        userCrudService.add(simpleUser);
         return simpleUser;
     }
 

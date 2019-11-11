@@ -2,6 +2,7 @@ package ua.training.model.repository;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import ua.training.model.entity.SimpleUser;
@@ -13,6 +14,7 @@ import java.util.List;
 public interface SimpleUserCrudRepository extends JpaRepository<SimpleUser, Long> {
 
 
+    @Override
 
-
+     SimpleUser save(SimpleUser s);
 }
