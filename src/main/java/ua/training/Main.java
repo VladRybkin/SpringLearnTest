@@ -22,7 +22,6 @@ public class Main {
         ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("spring.xml");
         User user = applicationContext1.getBean("user2", User.class);
 
-
     }
 }
 

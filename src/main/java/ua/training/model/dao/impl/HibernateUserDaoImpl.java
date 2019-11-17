@@ -25,7 +25,7 @@ public class HibernateUserDaoImpl implements HibernateUserDao {
 
     @Override
     public void addUser(SimpleUser book) {
-        Session session = this.sessionFactory.getCurrentSession();
+        Session session = this.sessionFactory.openSession();
         session.persist(book);
         logger.info("Book successfully saved. Book details: " + book);
     }
