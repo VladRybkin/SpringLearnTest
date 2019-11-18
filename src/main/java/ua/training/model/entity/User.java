@@ -126,4 +126,8 @@ public class User {
         System.out.println("post constr called");
     }
 
+   public void timesout(){
+        System.out.println("timesout called");
+    }
+
 }
