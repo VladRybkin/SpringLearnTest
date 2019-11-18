@@ -2,6 +2,8 @@ package ua.training.model.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.slf4j.Logger;
+import org.slf4j.impl.StaticMDCBinder;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.*;
@@ -120,7 +122,12 @@ public class User {
 
     @PostConstruct
     void postConst() {
+
         System.out.println("post constr called");
+    }
+
+   public void timesout(){
+        System.out.println("timesout called");
     }
 
 }

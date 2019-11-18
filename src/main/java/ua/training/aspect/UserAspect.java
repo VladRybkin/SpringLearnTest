@@ -5,8 +5,9 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Component;
 
-
+@Component
 @Aspect
 public class UserAspect {
 
@@ -15,17 +16,17 @@ public class UserAspect {
     public void beforeAllget() {
     }
 
-    @Pointcut("execution(* print*(..))")
+    @Pointcut("execution(* timesout*())")
     public void beforeprint() {
     }
 
-
-    @Before("beforeAllget()")
-    public void getAdvice() {
-
-        System.out.println("ggff");
-
-    }
+//
+//    @Before("beforeAllget()")
+//    public void getAdvice() {
+//
+//        System.out.println("ggff");
+//
+//    }
 
     @After("beforeprint()")
     public void printAdvice(JoinPoint joinPoint) {
