@@ -24,37 +24,37 @@ public class HibernateUserDaoImpl implements HibernateUserDao {
     }
 
     @Override
-    public void addUser(SimpleUser book) {
+    public void addUser(SimpleUser user) {
         Session session = this.sessionFactory.openSession();
-        session.persist(book);
-        logger.info("Book successfully saved. Book details: " + book);
+        session.persist(user);
+        logger.info("User successfully saved. User details: " + user);
     }
 
     @Override
-    public void updateUser(SimpleUser book) {
+    public void updateUser(SimpleUser user) {
         Session session = this.sessionFactory.getCurrentSession();
-        session.update(book);
-        logger.info("Book successfully update. Book details: " + book);
+        session.update(user);
+        logger.info("User successfully update. User details: " + user);
     }
 
     @Override
     public void removeUser(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        User book = (User) session.load(User.class, id);
+        User user = (User) session.load(User.class, id);
 
-        if(book!=null){
-            session.delete(book);
+        if(user!=null){
+            session.delete(user);
         }
-        logger.info("Book successfully removed. Book details: " + book);
+        logger.info("user successfully removed. user details: " + user);
     }
 
     @Override
     public SimpleUser getUserById(int id) {
         Session session =this.sessionFactory.getCurrentSession();
-        SimpleUser book = (SimpleUser) session.load(SimpleUser.class, new Integer(id));
-        logger.info("Book successfully loaded. Book details: " + book);
+        SimpleUser user = (SimpleUser) session.load(SimpleUser.class, new Integer(id));
+        logger.info("user successfully loaded. user details: " + user);
 
-        return book;
+        return user;
     }
 
     @Override
