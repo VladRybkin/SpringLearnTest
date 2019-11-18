@@ -11,7 +11,7 @@ import ua.training.model.entity.SimpleUser;
 import java.util.List;
 
 @RestController
-@RequestMapping("/JDBCrestusers")
+@RequestMapping("/jdbcrestusers")
 public class JdbcTemplateCrudController {
 
     @Autowired

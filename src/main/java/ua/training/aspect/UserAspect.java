@@ -1,10 +1,7 @@
 package ua.training.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,7 +25,7 @@ public class UserAspect {
 //
 //    }
 
-    @After("beforeprint()")
+    @Before("beforeprint()")
     public void printAdvice(JoinPoint joinPoint) {
 
         System.out.println("advice method called count = " + " " + joinPoint.getClass());
