@@ -14,7 +14,5 @@ import java.util.List;
 public interface SimpleUserCrudRepository extends JpaRepository<SimpleUser, Long> {
 
 
-    @Override
 
-     SimpleUser save(SimpleUser s);
 }

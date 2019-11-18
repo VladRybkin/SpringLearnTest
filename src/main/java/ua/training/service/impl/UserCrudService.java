@@ -26,4 +26,11 @@ public class UserCrudService {
     public void add(SimpleUser user) {
         simpleUserCrudRepository.save(user);
     }
+
+
+
+    @Transactional
+    public void remove(SimpleUser user) {
+        simpleUserCrudRepository.delete(user);
+    }
 }

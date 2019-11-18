@@ -30,4 +30,10 @@ public class JpaUserRestController {
         return simpleUser;
     }
 
+    @DeleteMapping
+    public SimpleUser removeUser(@RequestBody SimpleUser simpleUser) {
+        userCrudService.remove(simpleUser);
+        return simpleUser;
+    }
+
 }
