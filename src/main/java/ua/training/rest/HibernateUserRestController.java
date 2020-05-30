@@ -1,8 +1,10 @@
 package ua.training.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ua.training.model.entity.SimpleUser;
 import ua.training.service.HibernateUserService;
 
@@ -13,15 +15,13 @@ import java.util.List;
 public class HibernateUserRestController {
 
     @Autowired
-    HibernateUserService hibernateUserService;
-
-
+    private HibernateUserService hibernateUserService;
 
 
     @GetMapping
     public List<SimpleUser> getUsers() {
 
-        List<SimpleUser>simpleUsers=hibernateUserService.listUsers();
+        List<SimpleUser> simpleUsers = hibernateUserService.listUsers();
         return simpleUsers;
     }
 

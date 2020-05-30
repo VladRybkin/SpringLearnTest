@@ -2,11 +2,11 @@ package ua.training.service;
 
 
 import ua.training.model.entity.SimpleUser;
-import ua.training.model.entity.User;
 
 import java.util.List;
 
 public interface HibernateUserService {
+
     public void addUser(SimpleUser book);
 
     public void updateUser(SimpleUser simpleUser);

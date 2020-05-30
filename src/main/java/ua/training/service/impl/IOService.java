@@ -1,8 +1,7 @@
 package ua.training.service.impl;
 
 
-
-import ua.training.model.entity.User;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileReader;
@@ -10,7 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-
+@Component
 public class IOService {
 
     private static final File file = new File("C:\\Users\\Vlad\\IdeaProjects\\ASPRINGGG!!\\SpringLearnTest\\src\\main\\resources\\local.properties");

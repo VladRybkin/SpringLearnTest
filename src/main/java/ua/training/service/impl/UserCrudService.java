@@ -14,11 +14,10 @@ public class UserCrudService {
     @Autowired
     SimpleUserCrudRepository simpleUserCrudRepository;
 
-
     @Transactional
-    public List<SimpleUser> findAllSimpleUsers(){
-        
-       return simpleUserCrudRepository.findAll();
+    public List<SimpleUser> findAllSimpleUsers() {
+
+        return simpleUserCrudRepository.findAll();
 
     }
 
@@ -26,7 +25,6 @@ public class UserCrudService {
     public void add(SimpleUser user) {
         simpleUserCrudRepository.save(user);
     }
-
 
 
     @Transactional

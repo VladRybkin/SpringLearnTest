@@ -1,7 +1,7 @@
 /*body {  margin: 25px;*/
-    /*background-color: rgb(240,240,240);*/
-    /*font-family: arial, sans-serif;*/
-    /*font-size: 14px;}*/
+/*background-color: rgb(240,240,240);*/
+/*font-family: arial, sans-serif;*/
+/*font-size: 14px;}*/
 
 .align {
     margin-top: 3px;
@@ -13,7 +13,7 @@
     width: 590px;
     margin-top: 10px;
     margin-left: 70px;
-    background:#fafafa;
+    background: #fafafa;
 }
 
 .head {
@@ -36,8 +36,6 @@
     border: 1px solid black;
     color: darkcyan;
 
-
-
 }
 
 .center {
@@ -47,6 +45,7 @@
     width: 49.6%;
 
 }
+
 .header1 {
     text-align: center;
 }
@@ -72,11 +71,14 @@
 }
 
 header {
-    background-color: white; text-align: right; border: 1px solid #acadac;
+    background-color: white;
+    text-align: right;
+    border: 1px solid #acadac;
 }
 
 footer {
-    background-color: #00FFFF; text-align: center;
+    background-color: #00FFFF;
+    text-align: center;
 }
 
 .back {
@@ -107,6 +109,7 @@ table {
 #size {
     width: 500px;
 }
+
 #td {
     margin-left: -335px
 }

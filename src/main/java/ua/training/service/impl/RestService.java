@@ -1,6 +1,10 @@
 package ua.training.service.impl;
 
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
@@ -14,6 +18,7 @@ import java.util.List;
 
 @Component
 public class RestService {
+
     public ResponseEntity<String> getRest() {
         HttpHeaders requestHeaders = new HttpHeaders();
         requestHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -73,11 +78,10 @@ public class RestService {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-
         ResponseEntity<UserDTO[]> responseEntity =
                 restTemplate.getForEntity("http://localhost:8888/restusers", UserDTO[].class);
-        UserDTO[]userDTOS=responseEntity.getBody();
-        List<UserDTO> userDTOList= Arrays.asList(responseEntity.getBody());
+        UserDTO[] userDTOS = responseEntity.getBody();
+        List<UserDTO> userDTOList = Arrays.asList(responseEntity.getBody());
         System.out.println(userDTOList);
         //        System.out.println(Arrays.toString(userDTOS));
         return responseEntity;

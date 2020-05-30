@@ -1,6 +1,7 @@
 package ua.training.model.entity;
 
 public class RestEntity {
+
     private String name1;
     private String name2;
 

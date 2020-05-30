@@ -50,7 +50,7 @@ public class HibernateUserServiceImpl implements HibernateUserService {
     @Override
     @Transactional
     public List<SimpleUser> listUsers() {
-        System.out.println("jpa listbooks "+ simpleUserCrudRepository.findAll());
+        System.out.println("jpa listbooks " + simpleUserCrudRepository.findAll());
         return this.hibernateUserDao.listUsers();
     }
 }

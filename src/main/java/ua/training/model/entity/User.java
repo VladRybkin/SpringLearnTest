@@ -1,13 +1,7 @@
 package ua.training.model.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.slf4j.Logger;
-import org.slf4j.impl.StaticMDCBinder;
-
 import javax.annotation.PostConstruct;
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Set;
 
 
@@ -126,7 +120,7 @@ public class User {
         System.out.println("post constr called");
     }
 
-   public void timesout(){
+    public void timesout() {
         System.out.println("timesout called");
     }
 

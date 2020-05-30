@@ -17,27 +17,28 @@
 
 
     <!--<mvc:resources mapping="/resources/**" location="/WEB-INF/"/>-->
-    <tx:annotation-driven/>
-    <context:component-scan base-package="ua.training"/>
+
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-
+    <tx:annotation-driven/>
+    <tx:annotation-driven/>
+    <context:component-scan base-package="ua.training"/>
     <context:annotation-config/>
 
     <mvc:annotation-driven/>
 
     <aop:aspectj-autoproxy/>
     <aop:config proxy-target-class="true"/>
-    <tx:annotation-driven/>
+
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
     <security:global-method-security secured-annotations="enabled"
             jsr250-annotations="enabled"
-            pre-post-annotations="enabled" />
+            pre-post-annotations="enabled"/>
 
     <import resource="appconfig-root.xml"/>
 

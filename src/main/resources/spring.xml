@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-    <bean class="ua.training.model.entity.User" id="user2" init-method="initPr" >
+    <bean class="ua.training.model.entity.User" id="user2" init-method="initPr">
         <property name="id" value="3"/>
         <property name="name" value="VladTv"/>
     </bean>

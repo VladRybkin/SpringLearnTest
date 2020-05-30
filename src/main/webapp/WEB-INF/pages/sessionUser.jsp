@@ -19,15 +19,17 @@
 <br>
 ${currentUser}
 <br>
-<form  method="POST" action="${contextPath}/logout">
+<form method="POST" action="${contextPath}/logout">
     <input type="submit" value="logout">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
 <br>
 
 
-<form  method="post" action="">
-    <label><input type="text" name="stringParam"></label><id /><br>
+<form method="post" action="">
+    <label><input type="text" name="stringParam"></label>
+    <id/>
+    <br>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="register"><br>
 </form>
@@ -45,13 +47,14 @@ ${userlast}
 <br/>
 
 <form method="post" action="">
-    <label><input type="number" name="userId"></label><id /><br>
+    <label><input type="number" name="userId"></label>
+    <id/>
+    <br>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="remove"><br>
 </form>
 
 </body>
-
 
 
 </html>

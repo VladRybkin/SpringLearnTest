@@ -14,6 +14,7 @@ import java.util.List;
 
 @Repository
 public class HibernateUserDaoImpl implements HibernateUserDao {
+
     private static final Logger logger = LoggerFactory.getLogger(HibernateUserDaoImpl.class);
 
     private SessionFactory sessionFactory;
@@ -42,7 +43,7 @@ public class HibernateUserDaoImpl implements HibernateUserDao {
         Session session = this.sessionFactory.getCurrentSession();
         User user = (User) session.load(User.class, id);
 
-        if(user!=null){
+        if (user != null) {
             session.delete(user);
         }
         logger.info("user successfully removed. user details: " + user);
@@ -50,7 +51,7 @@ public class HibernateUserDaoImpl implements HibernateUserDao {
 
     @Override
     public SimpleUser getUserById(int id) {
-        Session session =this.sessionFactory.getCurrentSession();
+        Session session = this.sessionFactory.getCurrentSession();
         SimpleUser user = (SimpleUser) session.load(SimpleUser.class, new Integer(id));
         logger.info("user successfully loaded. user details: " + user);
 

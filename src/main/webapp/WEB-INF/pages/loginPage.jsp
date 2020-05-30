@@ -16,22 +16,25 @@
     <title>Title</title>
 </head>
 <body>
-<form  method="post"  modelAttribute="userForm" >
-    <label><input type="text" name="name" placeholder="Username"></label><id /><br>
-    <label><input type="password" name="password" placeholder="Password"></label><id /><br>
+<form method="post" modelAttribute="userForm">
+    <label><input type="text" name="name" placeholder="Username"></label>
+    <id/>
+    <br>
+    <label><input type="password" name="password" placeholder="Password"></label>
+    <id/>
+    <br>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" value="login">
 
 </form>
 
 
-
 <br>
 
 <%--<c:url var="logoutUrl" value="/j_spring_security_logout" />--%>
 <%--<form action="${logoutUrl}" id="logout" method="post">--%>
-    <%--<input type="hidden" name="${_csrf.parameterName}"--%>
-           <%--value="${_csrf.token}" />--%>
+<%--<input type="hidden" name="${_csrf.parameterName}"--%>
+<%--value="${_csrf.token}" />--%>
 <%--</form>--%>
 <%--<a href="#" onclick="document.getElementById('logout').submit();">Logout</a>--%>
 

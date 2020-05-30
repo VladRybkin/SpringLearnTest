@@ -1,7 +1,9 @@
 package ua.training.aspect;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,13 +19,13 @@ public class UserAspect {
     public void beforeprint() {
     }
 
-//
-//    @Before("beforeAllget()")
-//    public void getAdvice() {
-//
-//        System.out.println("ggff");
-//
-//    }
+    //
+    //    @Before("beforeAllget()")
+    //    public void getAdvice() {
+    //
+    //        System.out.println("ggff");
+    //
+    //    }
 
     @Before("beforeprint()")
     public void printAdvice(JoinPoint joinPoint) {

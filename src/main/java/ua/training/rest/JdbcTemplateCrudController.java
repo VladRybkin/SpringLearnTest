@@ -19,7 +19,7 @@ public class JdbcTemplateCrudController {
 
 
     @GetMapping
-    public List<SimpleUser>getUsersByJdbc(){
+    public List<SimpleUser> getUsersByJdbc() {
         return jdbcUserDao.getUsers();
     }
 }

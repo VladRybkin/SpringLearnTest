@@ -10,7 +10,9 @@
 
 <head>
     <title>Login page</title>
-    <style><%@include file="/WEB-INF/pages/css/style.css"%></style>
+    <style>
+        <%@include file="/WEB-INF/pages/css/style.css" %>
+    </style>
 </head>
 <body>
 
@@ -32,16 +34,13 @@
     </form>
 
 
-
-
-
-    <form  method="POST" action="${contextPath}/logout">
+    <form method="POST" action="${contextPath}/logout">
         <input type="submit" value="logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
 
 
-<br>
+    <br>
 
 
     ${currentUser}
@@ -84,8 +83,6 @@
 
 
 </body>
-
-
 
 
 </html>
